@@ -65,7 +65,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
    git commit -m "Add your commit message here"
    ```
 4. Push your changes to your fork:
-   ````shell
+   ```shell
    git push origin feature/your-feature-name
    ```
 5. Create a pull request on the main repository, explaining your changes and why they should be merged.
