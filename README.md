@@ -1,6 +1,7 @@
 # Password Generator
 
 A simple password generator web application built using React and styled with Tailwind CSS.
+![Password-Generator](https://github.com/RohanPatil4267/Password-Generator/blob/master/Password_generator.PNG)
 
 ## Table of Contents
 - Introduction
