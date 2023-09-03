@@ -5,7 +5,8 @@ function App() {
   const [password, setPassword] = useState("");
   const [isNumberAllowed, setNumberAllowed] = useState(false);
   const [isSpecialCharAllowed, setSpecialCharAllowed] = useState(false);
-
+  const [isCopied, setIsCopied] = useState("Copy");
+  const [makeBump, setMakeBump] = useState(false);
   const passInput = useRef();
 
   const GeneratePassword = useCallback(
@@ -31,7 +32,27 @@ function App() {
     GeneratePassword(passLength);
   }, [passLength, isNumberAllowed, isSpecialCharAllowed]);
 
+  useEffect(() => {
+    const Timer = setTimeout(() => {
+      setIsCopied("Copy");
+    }, 1000);
+    return () => {
+      clearTimeout(Timer);
+    };
+  }, [isCopied]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMakeBump(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [passLength]);
+
   const copyToClipboard = () => {
+    setIsCopied("Copied");
     navigator.clipboard.writeText(passInput.current.value);
   };
 
@@ -48,7 +69,7 @@ function App() {
         Password Generator
       </h1>
       <div
-        class="font-josefin-Sans flex flex-col p-6 bg-gray-700
+        className="font-josefin-Sans flex flex-col p-6 bg-gray-700
        bg-opacity-30  border border-gray-200 rounded-lg shadow-2xl"
       >
         {/* Read-Only Inputs */}
@@ -64,11 +85,13 @@ function App() {
           />
           <button
             onClick={copyToClipboard}
-            className="cursor-pointer border-2 sm:w-[100px]
+            className={`
+            ${isCopied === "Copied" && "bg-green-600"}
+            cursor-pointer border-2 sm:w-[100px]
             hover:bg-customPrimaryColor rounded-md
-            px-4 py-2 text-white font-semibold"
+            px-4 py-2 text-white font-semibold`}
           >
-            Copy
+            {isCopied}
           </button>
         </div>
         {/* Actions Inputs */}
@@ -82,9 +105,15 @@ function App() {
               id="length"
               onChange={(e) => {
                 setPassLength(e.currentTarget.value);
+                setMakeBump((prevVal) => !prevVal);
               }}
             />
-            <label htmlFor="length">Length: {passLength} </label>
+            <label
+            className="relative"
+            htmlFor="length">
+              Length:
+              <span className={makeBump ? "text-xl text-customSecondaryColor font-bold transition-all duration-150 ease-in-out absolute bottom-0" : "absolute "}>{passLength}</span>
+            </label>
           </div>
           <div className="flex flex-row gap-2">
             <input
