@@ -24,7 +24,6 @@ This project is a web-based password generator that allows users to generate sec
 ## Getting Started
 ### Prerequisites
 Before you begin, ensure you have met the following requirements:
-
 - Node.js installed on your machine.
 - Git installed on your machine (optional if you want to clone the repository).
 
@@ -32,23 +31,23 @@ Before you begin, ensure you have met the following requirements:
 To install this project, follow these steps:
 
 1. Clone the repository (if you haven't already):
-   ```bash
+   ```shell
     git clone https://github.com/your-username/password-generator.git
     ```
 2. Navigate to the project directory:
-   ```bash
+   ```shell
     cd password-generator
     ```  
 3. Install the project dependencies:
-   ```bash
+   ```shell
     npm install
-    ```
+   ```
 ## Usage
 1. Start the development server:
-   ```bash
-   npm start
+   ```shell
+   npm run dev
    ```
-2. Open your web browser and visit http://localhost:3000 to use the password generator.
+2. Open your web browser and visit http://localhost:3000 or local URL provide by VITE to use the password generator.
 3. Customize your password generation settings and click the "Generate Password" button.
 4. Click the "Copy to Clipboard" button to copy the generated password to your clipboard.
 
@@ -58,15 +57,15 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
-   ```bash
+   ```shell
    git checkout -b feature/your-feature-name
    ```
 3. Make your changes and commit them:
-   ```bash
+   ```shell
    git commit -m "Add your commit message here"
    ```
 4. Push your changes to your fork:
-   ````bash
+   ````shell
    git push origin feature/your-feature-name
    ```
 5. Create a pull request on the main repository, explaining your changes and why they should be merged.
